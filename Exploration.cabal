@@ -20,7 +20,7 @@ library
   exposed-modules:     Exploration, Exploration.Basics, Exploration.Order, Exploration.Subtype, Exploration.Template, Exploration.Category, Exploration.Order.Definition, Exploration.Template.Functor, Exploration.Data.Nat, Exploration.Data.Identity, Exploration.Data.Nat.Definition, Exploration.Data.Identity.Definition, Exploration.Data.Identity.Instance.Functor, Exploration.Data.Partial.Definition, Exploration.Data.Partial.Instance.Functor, Exploration.Logic.Definition, Exploration.Category.Functor, Exploration.Category.Definition, Exploration.Algebra.Associative.Definition, Exploration.Algebra.Lattice.Definition
   -- other-modules:       
   other-extensions:    TypeFamilies, KindSignatures, ScopedTypeVariables, LambdaCase
-  default-extensions:  TypeOperators, TypeFamilies, GADTs, FlexibleContexts, NoMonomorphismRestriction, MultiParamTypeClasses, DataKinds, PolyKinds, RebindableSyntax, TemplateHaskell, ScopedTypeVariables, NoImplicitPrelude, ConstraintKinds, RankNTypes, QuasiQuotes 
+  default-extensions:  TypeOperators, TypeFamilies, GADTs, FlexibleContexts, NoMonomorphismRestriction, MultiParamTypeClasses, DataKinds, PolyKinds, RebindableSyntax, TemplateHaskell, ScopedTypeVariables, NoImplicitPrelude, ConstraintKinds, RankNTypes, QuasiQuotes, BangPatterns, UndecidableInstances, FlexibleInstances
   build-depends:       base >=4.8 && <4.9, template-haskell >=2.10 && <2.11, constraints >=0.8 && <0.9
   -- hs-source-dirs:      
   default-language:    Haskell2010

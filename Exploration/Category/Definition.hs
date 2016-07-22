@@ -4,8 +4,8 @@ import Data.Constraint
 import Exploration.Basics
 
 class Category (cat :: obj -> obj -> *) where
-  type ValidCat cat (a :: obj) :: Constraint
-  id :: ValidCat cat a => cat a a
+  type ValidCategory cat (a :: obj) :: Constraint
+  id :: ValidCategory cat a => cat a a
   (.) :: cat b c -> cat a b -> cat a c
 
 (>>>) :: Category cat => cat a b -> cat b c -> cat a c
@@ -14,7 +14,9 @@ class Category (cat :: obj -> obj -> *) where
 (<<<) :: Category cat => cat b c -> cat a b -> cat a c
 (<<<) = (.)
 
+--  The orphans be below... :(
+
 instance Category (->) where
-  type ValidCat (->) a = ()
+  type ValidCategory (->) a = ()
   id = \x -> x
   (f . g) x = f (g x)

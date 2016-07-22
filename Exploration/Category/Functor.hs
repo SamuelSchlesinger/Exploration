@@ -15,11 +15,11 @@ import Data.Constraint
 -- of d, as well as a mapping fmap from arrows
 -- of c into arrows of d.
 
-class (Category c, Category d) => CovariantFunctor f c d where
-  mapCov :: a `c` b -> f a `d` f b
+class (Category c, Category d) => CovariantFunctor (f :: k -> i) (c :: k -> k -> *) (d :: i -> i -> *) where
+  mapCov :: c a b -> d (f a) (f b)
 
-class (Category c, Category d) => ContravariantFunctor f c d where
-  mapContra :: a `c` b -> f b `d` f a
+class (Category c, Category d) => ContravariantFunctor (f :: k -> i) (c :: k -> k -> *) (d :: i -> i -> *) where
+  mapContra :: c a b -> d (f b) (f a)
 
 instance CovariantFunctor [] (->) (->) where
   mapCov f []     = []
@@ -30,3 +30,11 @@ type ContravariantEndoFunctor f c = ContravariantFunctor f c c
 
 -- | The type of Functor typically used in Haskell code
 type Functor f = CovariantEndoFunctor f (->)
+
+infixr 0 <$>
+(<$>) :: Functor f => (a -> b) -> f a -> f b
+(<$>) = mapCov
+
+infixr 0 <$!>
+(<$!>) :: Functor f => (a -> b) -> f a -> f b
+f <$!> x = let !x' = x in f <$> x
