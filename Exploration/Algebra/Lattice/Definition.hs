@@ -13,3 +13,12 @@ class SemiLattice l where
 class Lattice l where
   (\/) :: l -> l -> l
   (/\) :: l -> l -> l
+
+-- | These two elements must play along with
+-- | the lattice operations in the following
+-- | way:
+--      a \/ bottom = a
+--      a /\ top    = a
+class Lattice l => BoundedLattice l where
+  top :: l
+  bottom :: l

@@ -4,6 +4,7 @@ module Exploration.Category
   , module Exploration.Category.Functor
   , module Exploration.Category.Concrete
   , module Exploration.Category.Monoidal
+  , module Exploration.Category.Product
 ) where
   
 import Exploration.Category.Definition
