@@ -1,7 +1,7 @@
 # Exploration (of Mathematics in Haskell)
 
 My exploration of pure maths in Haskell. The structure
-is such that for each "branch" module (conceptuall),
+is such that for each "branch" module (conceptually),
 there is a Module.Definition which contains the basic
 definition(s).
 
