@@ -24,9 +24,9 @@ type family a == b :: Bool where
   a == a = 'True
   a == b = 'False
 
-type family If (c :: Bool) (a :: Constraint) (b :: Constraint) where
-  If 'True a b  = a
-  If 'False a b = b
+type family IfElse (c :: Bool) (a :: Constraint) (b :: Constraint) where
+  IfElse 'True a b  = a
+  IfElse 'False a b = b
 
 type family (c :: Bool) ? (a :: Constraint) :: Constraint where
   'True ? a   = a

@@ -8,6 +8,9 @@ import Exploration.Subtype
 -- functor to Set.
 type Concrete cat = cat <: (->)
 
-infixr 0 |$|
-(|$|) :: Concrete c => c a b -> a -> b
-(|$|) = embed2
+-- | It was tripping me up that ($) in Subhask
+-- was defined as this, but I like the idea,
+-- because it basically overloads application.
+infixr 0 @*
+(@*) :: Concrete c => c a b -> a -> b
+(@*) = embed2

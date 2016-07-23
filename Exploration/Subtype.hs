@@ -29,7 +29,10 @@ embed4 :: (a <: b) => a x y z q -> b x y z q
 embed4 a = case embed_ of
   E4 f -> f a
 
--- | Here I used the same hack as in Subhask
+-- | Here I used the same hack as in Subhask.
+-- | Template Haskell might be able to make this
+-- | locally more attractive, but I'll just have
+-- | to see how its going.
 data family Embedding (a :: k) (b :: k)
 newtype instance Embedding (a :: *) (b :: *)
   = E0 (a -> b)
